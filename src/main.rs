@@ -14,6 +14,7 @@ fn main() {
     //       124000000   3sec sin terminal
     //       40000000   54secs con terminal
     //       1240000000 25sec sin terminal
+    //       6008514751 25sec sin terminal
     problem3(600851475143);
 }
 
@@ -49,19 +50,16 @@ fn problem2(max: i32) {
 
 /*
     The prime factors of 13195 are 5, 7, 13 and 29.
-    What is the largest prime factor of the number 600851475143 ?
+    What is the largest prime factor of the number 600.851.475.143 ?    
 */
 fn problem3(number: u64) {    
     let mut largest: u64 = 0;    
-    for i in (2..number/2 ).rev() {
+    for i in (2..number/2 ) {
         //println!("Trying: {}",i);
-        if modulo_u64(number,i) == 0 {
-            if is_prime_u64(i) {                
-                largest = i;
-                break;
-            }
-            else {
-                //
+        if number % i == 0 {
+            if is_prime_u64(i) {
+                print!("{} ",i);
+                largest = i;                
             }
         }
     }    
@@ -108,9 +106,9 @@ fn is_prime(number: i32) -> bool {
 
 fn is_prime_u64(number: u64) -> bool {
     let mut prime: bool = true;
-    for i in (2..number) {
+    for i in (2..number/2) {
         //print!("{} ", i);
-        if modulo_u64(number,i) == 0 {
+        if number % i == 0 {
             prime = false;
             break;
         }
