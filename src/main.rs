@@ -5,7 +5,7 @@
 
 fn main() {
     println!("Project Euler");
-    
+    problem3(600851475143);
     /*
     problem1(1000);  
     problem2(4000000);
@@ -75,14 +75,10 @@ fn problem3(number_original: u64) {
     let mut largest: u64 = 0;   
     let mut i:u64 = 2; 
     let mut number = number_original;
-    while i <= number {
-        //println!("Trying: {}",i);
-        if number % i == 0 {
-            if is_prime_u64(i) {
-                //print!("{} ",i);
-                largest = i;
-                number = number / i;
-            }
+    while i <= number {        
+        if number % i == 0 {            
+            largest = i;
+            number = number / i;            
         }
         i += 1;
     }    
@@ -170,6 +166,7 @@ fn is_prime(number: i32) -> bool {
     return prime;
 }
 
+#[allow(dead_code)]
 fn is_prime_u64(number: u64) -> bool {
     let mut prime: bool = true;
     for i in 2..number/2 {
