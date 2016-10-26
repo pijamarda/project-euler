@@ -52,18 +52,22 @@ fn problem2(max: i32) {
     The prime factors of 13195 are 5, 7, 13 and 29.
     What is the largest prime factor of the number 600.851.475.143 ?    
 */
-fn problem3(number: u64) {    
-    let mut largest: u64 = 0;    
-    for i in (2..number/2 ) {
+fn problem3(number_original: u64) {    
+    let mut largest: u64 = 0;   
+    let mut i:u64 = 2; 
+    let mut number = number_original;
+    while i <= number {
         //println!("Trying: {}",i);
         if number % i == 0 {
             if is_prime_u64(i) {
                 print!("{} ",i);
-                largest = i;                
+                largest = i;
+                number = number / i;
             }
         }
+        i += 1;
     }    
-    println!("The largest prime factor of {} is: {}", number, largest);
+    println!("The largest prime factor of {} is: {}", number_original, largest);
 }
 
 // Calculates modulo
