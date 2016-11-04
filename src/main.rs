@@ -13,6 +13,7 @@ fn main() {
     problem4(56);
     problem5(20);
     */
+    problem4(5677848);
     
     
 }
@@ -133,7 +134,26 @@ fn problem5(max: i32) {
 fn check_palindrome(num: i32) -> bool {
     let mut is_palindrome = false;
     let num_text = num.to_string();
+    let mut num_text_vec = num_text.chars();
+    let mut num_text_vec_reverse = num_text.chars().rev();
     println!("{}", num_text);
+    let mut len_word = num_text.len();
+    if len_word % 2 == 0 {
+        len_word = len_word / 2;
+    } else {
+        len_word = (len_word - 1 ) / 2;
+    }
+    println!("{}",len_word);
+    while len_word > 0 {
+        let result1 = num_text_vec.next();
+        let result2 = num_text_vec_reverse.next();
+        println!("{:?} = {:?}", result1, result2);
+        len_word = len_word - 1;
+    }
+    
+    println!("");
+    
+    
     if is_palindrome {
         is_palindrome=true;
     }
